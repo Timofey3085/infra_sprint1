@@ -2,4 +2,4 @@ IP: 84.252.142.244;
 name_taski: https://tasksforyou.ddns.net;
 name_kittygram: https://mykittygramm.ddns.net;
 login: Timofey85;
-password: 1Ashtray;
+password: 1Ashtray85;
