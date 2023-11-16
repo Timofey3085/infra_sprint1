@@ -1,29 +1,25 @@
 server {
     server_name mykittygramm.ddns.net;
-    server_tokens off;
 
     location /api/ {
-        proxy_pass http://127.0.0.1:8080;
+        proxy_pass http://127.0.0.1:8060;
         client_max_body_size 20M;
     }
 
     location /admin/ {
-        proxy_pass http://127.0.0.1:8080;
+        proxy_pass http://127.0.0.1:8060;
         client_max_body_size 20M;
     }
 
     location /media/ {
-        alias /var/www/kittygram/media/;
+        root /var/www/kittygram/;
     }
 
     location / {
-        root /var/www/infra_sprint1;
+        root /var/www/kittygram/;
         index index.html index.htm;
         try_files $uri /index.html;
     }
-
-    access_log /var/log/nginx/access.log;
-    error_log /var/log/nginx/error.log debug;
 
 
     listen 443 ssl; # managed by Certbot
@@ -37,6 +33,7 @@ server {
     if ($host = mykittygramm.ddns.net) {
         return 301 https://$host$request_uri;
     } # managed by Certbot
+
 
     server_name mykittygramm.ddns.net;
     listen 80;
@@ -77,10 +74,3 @@ server {
         return 301 https://$host$request_uri;
     } # managed by Certbot
 
-
-    listen 80;
-    server_name tasksforyou.ddns.net;
-    return 404; # managed by Certbot
-
-
-}
