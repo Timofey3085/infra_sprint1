@@ -148,5 +148,5 @@ Gunicorn
 Django (backend)
 React (frontend)
 
-Авторы
+Автор
 [Timofey - Razborshchikov](https://github.com/Timofey3085)
